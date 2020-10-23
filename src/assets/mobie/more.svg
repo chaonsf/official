@@ -1,0 +1,21 @@
+<svg id="更多" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="组_3" data-name="组 3">
+    <circle id="椭圆_1" data-name="椭圆 1" class="cls-1" cx="4.5" cy="9" r="2"/>
+    <rect id="圆角矩形_1" data-name="圆角矩形 1" class="cls-1" x="9.5" y="8" width="32" height="2" rx="1" ry="1"/>
+  </g>
+  <g id="组_2" data-name="组 2">
+    <circle id="椭圆_1_拷贝" data-name="椭圆 1 拷贝" class="cls-1" cx="4.5" cy="22" r="2"/>
+    <rect id="圆角矩形_1_拷贝" data-name="圆角矩形 1 拷贝" class="cls-1" x="9.5" y="21" width="32" height="2" rx="1" ry="1"/>
+  </g>
+  <g id="组_1" data-name="组 1">
+    <circle id="椭圆_1_拷贝_2" data-name="椭圆 1 拷贝 2" class="cls-1" cx="4.5" cy="35" r="2"/>
+    <rect id="圆角矩形_1_拷贝_2" data-name="圆角矩形 1 拷贝 2" class="cls-1" x="9.5" y="34" width="32" height="2" rx="1" ry="1"/>
+  </g>
+</svg>

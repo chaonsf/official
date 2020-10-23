@@ -1,0 +1,138 @@
+.entry{
+    width: 620px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    .desc{
+        margin-top: -22px;
+        color:#fff;
+        .el-form-item__content{
+            line-height:normal !important;
+        }
+    }
+    .max{
+        .el-form-item__label{
+            line-height:normal;
+        }
+    }
+    .el-radio{
+        color:#fff;
+    }
+    .el-input{
+        .el-input__inner{
+            background-color: #07172E;
+            color:#fff;
+        }
+    }
+    .el-form{
+        .el-form-item{
+            .el-form-item__label{
+                color: #fff;
+            }
+        }
+        .require{
+            .el-form-item__label::before{
+                content: "*";
+                color: #F56C6C;
+                margin-right: 4px;                       
+            }
+        }
+        .business{
+            .el-upload{
+                width: 100%;
+                .el-button--info {
+                    width: 100%;
+                    font-size: 18px;
+                    color: #ddd;
+                }
+            }
+        }
+     }
+     .location{
+        .label{
+            font-size: 16px;
+            color: #fff;
+            margin-left:21px;
+            margin-top: 15px;
+            &::before{
+                content: "*";
+                color: #F56C6C;
+                margin-right: 4px;
+            }
+        }
+        .label2{
+            font-size: 16px;
+            color: #333;
+            margin-left:-5px;
+            margin-top: 15px; 
+            &::before{
+                content: "*";
+                color: #F56C6C;
+                margin-right: 4px;
+            }                     
+        }
+        .san{
+            padding-left:97px;
+            .detail{
+                margin-top: 10px;
+            }
+        }
+        .fl{
+            display: flex;
+            flex-direction:row;
+            .img{
+                flex: 1;
+            }
+        }
+    }
+    .ttwo{
+        margin-top:40px;
+        .subheadright{
+            text-align: right;
+        }
+    }
+    .idCardupload{
+        border: 1px solid #DADADA;
+        border-radius: 6px;
+        height:150px;
+        text-align: center;
+        line-height: 150px;
+        box-sizing: border-box;
+        .el-upload--picture-card{
+            width:100%;
+            background-color: #07172E;
+            color:#fff;
+        }
+        .el-upload-list__item{
+            width: 100% ;
+        }
+    }
+    .base{
+        .el-upload--picture-card{
+            background-color: #07172E;
+            color:#fff;
+        }
+    }
+
+    .float{
+        overflow: hidden;
+    }
+    .el-button--default{
+        background: linear-gradient(90deg, #1BD39C 0%, #11BAD2 100%);
+        color: #fff;
+        width:518px;
+        font-size: 18px;
+        margin-top: 20px;
+        margin-left:102px;
+        border:none;
+    }
+.regist{
+    a{
+        color:#1cd49a;
+    }
+}
+.el-checkbox{
+    .el-checkbox__label{
+        color: #fff;
+    }
+}
+}
