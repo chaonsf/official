@@ -224,11 +224,6 @@ export default {
                     msg: '请上传营业执照'
                 });
                 return
-            } else if (!this.form2.licenseUrl) {
-                this.$msg({
-                    msg: '请上传动物防疫条件合格证'
-                });
-                return
             } else if (!this.form2.address) {
                 this.$msg({
                     msg: "请填写养殖地址"

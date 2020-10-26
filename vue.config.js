@@ -19,13 +19,13 @@ module.exports = {
         // 反向代理配置
         proxy: {
             '/api': {
-                target:'http://192.168.200.30:8081',
-                // target:'http://yhcz.site',	
+                 //target:'http://192.168.200.30:8081',
+                 target:'https://ynyiot.com',
                 ws: true,
                 changeOrigin: true,		
-                 pathRewrite: {
+                /*  pathRewrite: {
                     '^/api': '/'
-                } 
+                }  */
             },
             '/ys7': {
                 target: 'https://open.ys7.com/api',

@@ -28,6 +28,20 @@
                 </bm-marker>
             </template>
         </baidu-map>
+        <div class='detailtable'>
+            <el-table :data="tableData" border>
+                <el-table-column prop="farmName" label="下辖基地"> </el-table-column>
+                <el-table-column prop="regname" label="基地地址"> </el-table-column>
+                <el-table-column prop="telephone" label="联系电话"> </el-table-column>
+                <el-table-column width='150' align='center'>
+                    <template slot-scope="scope">
+                        <i class="el-icon-document" @click='querydetail(scope.row)'></i>
+                    </template>
+                </el-table-column>
+            </el-table>
+            <el-pagination background layout="prev, pager, next" :total="tablepage.total" @current-change="currentChange2" @size-change="sizeChange2"> </el-pagination>
+        </div>
+
     </div>
     <Foot></Foot>
 </div>
@@ -39,9 +53,13 @@ import {
     today
 } from "@/utils/commom"
 import {
-    baiduMaps
+    baiduMaps,
+    tableChart
 } from '@/api/basefarm'
 import store from "@/store"
+import {
+    mapGetters
+} from 'vuex'
 import Foot from "../../components/footer"
 const todaya = today()
 export default {
@@ -74,15 +92,34 @@ export default {
             },
             content: '',
             selectId: '',
+            tableData: [],
+            tablepage: {
+                total: 0,
+                currentPage: 1,
+                pageSize: 10,
+                pagerCount: 5,
+            }
         }
     },
     created() {
         store.dispatch("CHECKTHEME", 2)
     },
     mounted() {
-        this.mapChart()
+        //this.mapChart()
+        this.initload()
+    },
+    computed: {
+        ...mapGetters(['userinfo'])
     },
     methods: {
+        initload() {
+            this.mapChart()
+            this.tableChart2()
+        },
+        querydetail(item) {
+            let farmId = item.id
+            this.$router.push('/platform/' + farmId)
+        },
         mapChart() {
             let param = this.backdata();
             baiduMaps(param).then(res => {
@@ -116,12 +153,58 @@ export default {
                 }
             })
         },
+        backdata() {
+            /*       let loactions=this.$refs.loc
+                let   param=Object.assign({},this.query,{
+                  province:loactions.provinceId,
+                  city:loactions.cityId,
+                  county:loactions.countyId
+             }) */
+            let param = this.query
+            return param
+        },
+        tableChart2() {
+            let param = this.backdata()
+            param = Object.assign(param, {
+                current: this.tablepage.currentPage,
+                size: this.tablepage.pageSize
+            })
+            tableChart(param).then(res => {
+                let {
+                    code,
+                    data
+                } = res.data;
+                if (code == 200) {
+                    let arr = data.farmList.records
+                    if (!this.userinfo) {
+                        arr.forEach(item => {
+                            item.telephone = this.showphone(item.telephone)
+                        })
+                    }
+
+                    this.tableData = arr
+                    this.tablepage.total = data.farmList.total
+                }
+            })
+        },
+        showphone(phone) {
+            let param = ''
+            if (phone) {
+                param = phone.substr(0, 3) + '****' + phone.substr(7);
+            }
+            return param
+
+        },
         mouseover(item) {
-            this.selectId = item.id
+            this.selectId = item.id;
+            console.log("item:", item)
+            let dushu = item.coords.split(',')
+            console.log("dushu:", dushu)
             this.content = `<div class='mark'>
                     <p style='margin-top:"10px"'>${item.farmName}</p>
                     <p style='margin-top:"10px"'>在栏数:${item.inFenceCount}</p>
                     <p style='margin-top:"10px"'>地址:${item.address}</p>
+                    <p style='margin-top:"10px"'>经度:${dushu[0]}   纬度:${dushu[1]}</p>
                  </div>`
         },
         mouseout() {
@@ -130,6 +213,14 @@ export default {
         backdata() {
             let param = this.query
             return param
+        },
+        currentChange2(cur) {
+            this.tablepage.currentPage = cur
+            this.tableChart2()
+        },
+        sizeChange2(pageSize) {
+            this.tablepage.pageSize = pageSize;
+            this.tableChart2()
         },
     }
 }
@@ -199,6 +290,19 @@ export default {
                 }
 
             }
+        }
+
+        .detailtable {
+            margin-top: 20px;
+            text-align: center;
+
+            .el-pagination {
+                margin-top: 10px;
+            }
+        }
+
+        .el-icon-document {
+            cursor: pointer;
         }
 
         .bm-view {

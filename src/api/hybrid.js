@@ -3,7 +3,8 @@ import request from '@/utils/request';
 import qs from 'qs'
 
 export const testData=(data)=>request({
-    url:`/api/web/env/monitor`,
+    /* url:`/api/web/env/monitor`, */
+    url:'/api/no-auth/tracing/monitor',
     method:'get',
     params:data
 })
@@ -26,4 +27,20 @@ export const huourl=(data)=>request({
     url:'/ys7/lapp/live/address/limited',
     method:'post',
     data:qs.stringify(data)
+})
+export const tracing=(data)=>request({
+  url:'/api/no-auth/tracing',
+  method:'get',
+  params:data
+})
+
+export const line=(data)=>request({
+  url:`/api/web/env/monitor`,
+  method:'get',
+  params:data
+})
+export const photolist=(data)=>request({
+  url:`/api/no-auth/tracing/diagram-list`,
+  method:'get',
+  params:data
 })

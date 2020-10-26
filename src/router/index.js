@@ -77,6 +77,10 @@ export const constantRoutes=[
         component:()=>import('../views/newentry/baseentry')
       },
       {
+          path:'/platform/:id',
+          component:()=>import('../views/pc/detail.vue')
+      },
+      {
         path:'/insurancentry',
         meta:{
            title:'保险入驻',
@@ -158,6 +162,13 @@ export const constantRoutes=[
         },
         component:()=>import('../views/multi/index')
       },
+      {
+         path:'/trace/:id',
+         meta:{
+            title:'溯源',
+         },
+         component:()=>import('../views/multi/trace.vue')
+      }
 ]
 
 const router = new VueRouter({

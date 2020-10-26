@@ -23,14 +23,18 @@
             <el-col :sm='24' :xs='24' :md='8' :lg='8' :xl='8' class='num'>
                 <div class='item'>
                     <img src="../../assets/new/icon11.png" />
-                    <p class='number'>{{helpdata.povertyCount}}</p>
+                    <p class='number'>
+                        <!-- {{helpdata.povertyCount}} -->569
+                    </p>
                     <p class='title'>帮扶贫困户数量（户）</p>
                 </div>
             </el-col>
             <el-col :sm='24' :xs='24' :md='8' :lg='8' :xl='8' class='num'>
                 <div class='item'>
                     <img src="../../assets/new/icon10.png" />
-                    <p class='number'>{{helpdata.povertyAvgAmount}}</p>
+                    <p class='number'>
+                        <!-- {{helpdata.povertyAvgAmount}} -->618
+                    </p>
                     <p class='title'>贫困户平均增收</p>
                 </div>
             </el-col>
@@ -38,7 +42,9 @@
                 <div class='item'>
                     <div class='pie' id='poor'></div>
                     <div class='right'>
-                        <p><span>{{helpdata.povertyLivestockCount}}</span>头</p>
+                        <p><span>
+                                <!-- {{helpdata.povertyLivestockCount}} -->32785
+                            </span>头</p>
                         <p>贫困户畜类在栏数量</p>
                         <p class='two'><span>{{helpdata.name1}}</span></p>
                         <p>占在栏畜类总数</p>
@@ -49,7 +55,9 @@
                 <div class='item'>
                     <div class='pie' id='poor2'></div>
                     <div class='right'>
-                        <p><span>{{helpdata.povertyPoultryCount}}</span>头</p>
+                        <p><span>
+                                <!-- {{helpdata.povertyPoultryCount}} -->68303
+                            </span>头</p>
                         <p>贫困户禽类在栏数量</p>
                         <p class='two'><span>{{helpdata.name2}}</span></p>
                         <p>占在栏禽类总数</p>
@@ -60,7 +68,9 @@
                 <div class='item'>
                     <div class='pie' id='poor3'></div>
                     <div class='right'>
-                        <p><span>{{helpdata.povertyTotalAmount}}</span>万元</p>
+                        <p><span>
+                                <!-- {{helpdata.povertyTotalAmount}} -->170
+                            </span>万元</p>
                         <p>帮助贫困户年产值</p>
                         <p class='two'><span>{{helpdata.name3}}</span></p>
                         <p>占平台年总产值</p>
@@ -176,7 +186,7 @@ export default {
                         radius: '55%',
                         center: ['50%', '60%'],
                         data: [{
-                                value: this.helpdata.deffpovertyLivestockCount,
+                                value: /* this.helpdata.deffpovertyLivestockCount */273213,
                                 name: '0',
                                 selected: true,
                                 itemStyle: {
@@ -186,7 +196,7 @@ export default {
                                 label: this.label2
                             },
                             {
-                                value: this.helpdata.povertyLivestockCount,
+                                value: /* this.helpdata.povertyLivestockCount */163928,
                                 name: this.helpdata.name1,
                                 itemStyle: {
                                     color: "#566ED4",
@@ -211,7 +221,7 @@ export default {
                         radius: '55%',
                         center: ['50%', '60%'],
                         data: [{
-                                value: this.helpdata.diffpovertyPoultryCount,
+                                value: /* this.helpdata.diffpovertyPoultryCount */341516,
                                 name: '0',
                                 selected: true,
                                 itemStyle: {
@@ -221,7 +231,7 @@ export default {
                                 label: this.label2
                             },
                             {
-                                value: this.helpdata.povertyPoultryCount,
+                                value: /* this.helpdata.povertyPoultryCount */113839,
                                 name: this.helpdata.name2,
                                 itemStyle: {
                                     color: "#009AFF",
@@ -246,7 +256,7 @@ export default {
                         radius: '55%',
                         center: ['50%', '60%'],
                         data: [{
-                                value: this.helpdata.diffpovertyTotalAmount,
+                                value:/*  this.helpdata.diffpovertyTotalAmount */853.5,
                                 name: '0',
                                 selected: true,
                                 itemStyle: {
@@ -256,7 +266,7 @@ export default {
                                 label: this.label2
                             },
                             {
-                                value: this.helpdata.povertyTotalAmount,
+                                value: /* this.helpdata.povertyTotalAmount */1422,
                                 name: this.helpdata.name3,
                                 itemStyle: {
                                     color: "#6C80D1",
